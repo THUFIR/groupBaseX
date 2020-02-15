@@ -44,22 +44,20 @@ public class DatabaseHelper {
         log.fine(new List().execute(context));
     }
 
-    private void replace() throws BaseXException, IOException {
+    private void query() throws BaseXException, IOException {
 
         new Open(databaseName).execute(context);
         Command replace = null;
 
         for (int i = 1; i < 9; i++) {
-            replace.execute(context);
+           // replace.execute(context);
         }
-        log.fine((new XQuery(".")).execute(context).toString());
+        log.info((new XQuery(".")).execute(context).toString());
     }
 
-    public void dropCreateAdd() throws MalformedURLException, BaseXException, IOException {
+    public void foo() throws MalformedURLException, BaseXException, IOException {
         init();
-        // drop();
-        //  create();
-        replace();
+        query();
         list();
     }
 
