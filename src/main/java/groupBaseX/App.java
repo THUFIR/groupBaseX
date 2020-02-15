@@ -4,7 +4,6 @@ import basex.DatabaseHelper;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
-import org.basex.core.Context;
 
 public class App {
 
