@@ -6,14 +6,10 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
-import org.basex.core.Command;
 import org.basex.core.Context;
 import org.basex.core.cmd.List;
 import org.basex.core.cmd.Open;
-import org.basex.core.cmd.Replace;
-import org.basex.core.cmd.Set;
 import org.basex.core.cmd.XQuery;
-import org.basex.io.in.ArrayInput;
 
 public class DatabaseHelper {
 
@@ -45,14 +41,22 @@ public class DatabaseHelper {
     }
 
     private void query() throws BaseXException, IOException {
-
         new Open(databaseName).execute(context);
-        Command replace = null;
+        String xml = new XQuery(".").execute(context).toString();
+        log.info(xml);
+        /*
+        File xmlFile = new File("src/main/resources/example.xml");
+DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 
-        for (int i = 1; i < 9; i++) {
-           // replace.execute(context);
-        }
-        log.info((new XQuery(".")).execute(context).toString());
+DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+Document element = dBuilder.parse(xmlFile);
+
+NodeList list = element.getElementsByTagName("ID");
+for (int i = 0; i < list.getLength(); i++){
+    Node specificIDNode = list.item(i);
+    System.out.println(specificIDNode.getTextContent());
+}
+         */
     }
 
     public void foo() throws MalformedURLException, BaseXException, IOException {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="csv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="record"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="record">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="entry"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="entry" type="xs:NCName"/>
+</xs:schema>
