@@ -34,7 +34,7 @@ public class FileHelper {
         log.fine(lines.toString());
     }
 
-    public void processLines() throws IOException {
+    public List<Person> getPeople() throws IOException {
         readFile();
         String regex = "\\D+";
         boolean isDigit = false;
@@ -47,7 +47,8 @@ public class FileHelper {
                 addPerson(s);
             }
         }
-        log.info(people.toString());
+        log.fine(people.toString());
+        return people;
     }
 
     private void addAttribute(String s) {

@@ -1,7 +1,10 @@
 package groupBaseX;
 
+import basex.DatabaseHelper;
 import basex.FileHelper;
+import basex.Person;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -14,7 +17,9 @@ public class App {
         properties.loadFromXML(App.class.getResourceAsStream("/basex.xml"));
         log.fine(properties.toString());
         FileHelper f = new FileHelper(properties);
-        f.processLines();
+        List<Person> people = f.getPeople();
+        log.info(people.toString());
+        DatabaseHelper db = new DatabaseHelper(properties);
     }
 
     public static void main(String[] args) throws IOException {
