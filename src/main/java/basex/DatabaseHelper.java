@@ -43,7 +43,7 @@ public class DatabaseHelper {
     }
 
     private void list() throws BaseXException {
-        log.info(new List().execute(context));
+        log.fine(new List().execute(context));
     }
 
     private void query() throws BaseXException, IOException {
@@ -71,21 +71,20 @@ public class DatabaseHelper {
     }
 
     public void persist(JSONArray jsonPeople) throws MalformedURLException, BaseXException {
-        log.info(jsonPeople.toString());
-        init();
-        new DropDB(databaseName).execute(context);
-        new CreateDB(databaseName).execute(context);
-        new Set("parser", "json").execute(context);
+        log.fine(databaseName);
+      //  init();
+     //   new DropDB(databaseName).execute(context);
+     //   new CreateDB(databaseName).execute(context);
+     //   new Set("parser", "json").execute(context);
         new Open(databaseName).execute(context);
-        list();
-        new Add(jsonPeople.toString()).execute(context);
 
-        /*
-        JSONObject foo = null;
+        
+        JSONObject jsonPerson = null;
         for (int i = 0; i < jsonPeople.length(); i++) {
-            foo = jsonPeople.getJSONObject(i);
-            new Add(foo.toString()).execute(context);
-        }*/
+            jsonPerson = new JSONObject(jsonPeople.getJSONObject(i).toString());
+            log.info(jsonPerson.toString());
+          //  new Add(jsonPerson.toString()).execute(context);
+        }
     }
 
 }
