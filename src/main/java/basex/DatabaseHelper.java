@@ -65,4 +65,8 @@ for (int i = 0; i < list.getLength(); i++){
         list();
     }
 
+    public void addPeople(java.util.List<Person> people) throws MalformedURLException, BaseXException {
+        init();
+    }
+
 }

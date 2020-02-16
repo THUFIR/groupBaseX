@@ -20,6 +20,7 @@ public class App {
         List<Person> people = f.getPeople();
         log.info(people.toString());
         DatabaseHelper db = new DatabaseHelper(properties);
+        db.addPeople(people);
     }
 
     public static void main(String[] args) throws IOException {
