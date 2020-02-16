@@ -19,7 +19,7 @@ public class App {
         log.fine(properties.toString());
         FileHelper f = new FileHelper(properties);
         List<Person> people = f.getPeople();
-        log.fine(people.toString());
+        log.info(people.toString());
         DatabaseHelper db = new DatabaseHelper(properties);
         JSONArray foo = db.addPeople(people);
         log.info(foo.toString());

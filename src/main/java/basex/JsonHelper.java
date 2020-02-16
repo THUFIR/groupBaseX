@@ -15,8 +15,8 @@ public class JsonHelper {
         int i = 0;
         for (String s : p.getAttributes()) {
             j.put(Integer.toString(i), s);
+            i++;
         }
         return j;
     }
-
 }
