@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
+import org.json.JSONArray;
 
 public class App {
 
@@ -18,9 +19,10 @@ public class App {
         log.fine(properties.toString());
         FileHelper f = new FileHelper(properties);
         List<Person> people = f.getPeople();
-        log.info(people.toString());
+        log.fine(people.toString());
         DatabaseHelper db = new DatabaseHelper(properties);
-        db.addPeople(people);
+        JSONArray foo = db.addPeople(people);
+        log.info(foo.toString());
     }
 
     public static void main(String[] args) throws IOException {
