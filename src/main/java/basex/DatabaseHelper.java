@@ -71,6 +71,7 @@ public class DatabaseHelper {
     }
 
     public void persist(JSONArray jsonPeople) throws MalformedURLException, BaseXException {
+        log.info(jsonPeople.toString());
         init();
         new DropDB(databaseName).execute(context);
         new CreateDB(databaseName).execute(context);
