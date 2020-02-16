@@ -7,16 +7,16 @@ public class JsonHelper {
     public JsonHelper() {
     }
 
-    JSONObject convert(Person p) {
-        JSONObject j = null;
-        j = new JSONObject();
+    JSONObject convert(Person person) {
+        JSONObject jsonObject = null;
+        jsonObject = new JSONObject();
 
-        j.put("name", p.getName());
         int i = 0;
-        for (String s : p.getAttributes()) {
-            j.put(Integer.toString(i), s);
+        for (String attribute : person.getAttributes()) {
+            jsonObject.put(Integer.toString(i), attribute);
             i++;
         }
-        return j;
+        jsonObject.put("name", person.getName());
+        return jsonObject;
     }
 }

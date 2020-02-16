@@ -58,12 +58,12 @@ public class DatabaseHelper {
 
     public JSONArray addPeople(java.util.List<Person> people) throws MalformedURLException, BaseXException {
         init();
-        JsonHelper g = new JsonHelper();
-        JSONObject j = null;
+        JsonHelper jsonHelper = new JsonHelper();
+        JSONObject jsonObject = null;
         JSONArray jsonArray = new JSONArray();
         for (Person p : people) {
-            j = g.convert(p);
-            jsonArray.put(j);
+            jsonObject = jsonHelper.convert(p);
+            jsonArray.put(jsonObject);
         }
         return jsonArray;
     }
