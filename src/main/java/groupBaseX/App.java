@@ -15,14 +15,14 @@ public class App {
     private Properties properties = new Properties();
 
     private void run() throws IOException {
-        properties.loadFromXML(App.class.getResourceAsStream("/real.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/dummy.xml"));
         log.fine(properties.toString());
         FileHelper f = new FileHelper(properties);
         List<Person> people = f.getPeople();
         log.fine(people.toString());
         DatabaseHelper db = new DatabaseHelper(properties);
         JSONArray jsonPeople = db.addPeople(people);
-        log.info(jsonPeople.toString());
+        log.fine(jsonPeople.toString());
         db.persist(jsonPeople);
     }
 
