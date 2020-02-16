@@ -7,8 +7,12 @@ import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
+import org.basex.core.cmd.Add;
+import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.DropDB;
 import org.basex.core.cmd.List;
 import org.basex.core.cmd.Open;
+import org.basex.core.cmd.Set;
 import org.basex.core.cmd.XQuery;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,7 +36,7 @@ public class DatabaseHelper {
     private void init() throws MalformedURLException, BaseXException {
         log.fine(properties.toString());
         parserType = properties.getProperty("parserType");
-        url = new URL(properties.getProperty(parserType + "URL"));
+     //   url = new URL(properties.getProperty(parserType + "URL"));
         databaseName = properties.getProperty("databaseName");
         context = new Context();
         list();
@@ -46,19 +50,6 @@ public class DatabaseHelper {
         new Open(databaseName).execute(context);
         String xml = new XQuery(".").execute(context).toString();
         log.info(xml);
-        /*
-        File xmlFile = new File("src/main/resources/example.xml");
-DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-
-DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-Document element = dBuilder.parse(xmlFile);
-
-NodeList list = element.getElementsByTagName("ID");
-for (int i = 0; i < list.getLength(); i++){
-    Node specificIDNode = list.item(i);
-    System.out.println(specificIDNode.getTextContent());
-}
-         */
     }
 
     public void foo() throws MalformedURLException, BaseXException, IOException {
@@ -71,12 +62,29 @@ for (int i = 0; i < list.getLength(); i++){
         init();
         JsonHelper g = new JsonHelper();
         JSONObject j = null;
-        JSONArray jsonArray=new JSONArray();
+        JSONArray jsonArray = new JSONArray();
         for (Person p : people) {
             j = g.convert(p);
             jsonArray.put(j);
         }
         return jsonArray;
+    }
+
+    public void persist(JSONArray jsonPeople) throws MalformedURLException, BaseXException {
+       // init();
+        new DropDB(databaseName).execute(context);
+        new CreateDB(databaseName).execute(context);
+        new Open(databaseName).execute(context);
+        new Set("parser", "json").execute(context);
+
+      //  new Add(jsonPeople.toString()).execute(context);
+
+        /*
+                JSONObject foo = null;
+        for (int i = 0; i < jsonPeople.length(); i++) {
+            foo = jsonPeople.getJSONObject(i);
+             new Add(foo.toString()).execute(context);
+        }*/
     }
 
 }
