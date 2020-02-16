@@ -13,7 +13,7 @@ public class App {
     private static final Logger log = Logger.getLogger(App.class.getName());
     private Properties properties = new Properties();
 
-    private void foo() throws IOException {
+    private void run() throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/basex.xml"));
         log.fine(properties.toString());
         FileHelper f = new FileHelper(properties);
@@ -24,6 +24,6 @@ public class App {
     }
 
     public static void main(String[] args) throws IOException {
-        new App().foo();
+        new App().run();
     }
 }
