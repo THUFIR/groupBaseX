@@ -8,8 +8,6 @@ import java.util.logging.Logger;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.Add;
-import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.DropDB;
 import org.basex.core.cmd.List;
 import org.basex.core.cmd.Open;
 import org.basex.core.cmd.Set;
@@ -71,19 +69,14 @@ public class DatabaseHelper {
     }
 
     public void persist(JSONArray jsonPeople) throws MalformedURLException, BaseXException {
-        log.fine(databaseName);
-      //  init();
-     //   new DropDB(databaseName).execute(context);
-     //   new CreateDB(databaseName).execute(context);
-     //   new Set("parser", "json").execute(context);
+        new Set("parser", "json").execute(context);
         new Open(databaseName).execute(context);
-
         
         JSONObject jsonPerson = null;
         for (int i = 0; i < jsonPeople.length(); i++) {
             jsonPerson = new JSONObject(jsonPeople.getJSONObject(i).toString());
             log.info(jsonPerson.toString());
-          //  new Add(jsonPerson.toString()).execute(context);
+            new Add(jsonPerson.toString()).execute(context);
         }
     }
 
