@@ -27,4 +27,12 @@ public class Person {
         }
         return "\n\n\n" + name + "\n" + stringBuilder.toString();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getAttributes() {
+        return attributes;
+    }
 }

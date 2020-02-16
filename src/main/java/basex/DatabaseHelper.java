@@ -10,6 +10,7 @@ import org.basex.core.Context;
 import org.basex.core.cmd.List;
 import org.basex.core.cmd.Open;
 import org.basex.core.cmd.XQuery;
+import org.json.JSONObject;
 
 public class DatabaseHelper {
 
@@ -19,6 +20,7 @@ public class DatabaseHelper {
     private String databaseName = null;
     private Context context = null;
     private String parserType = null;
+    private JsonHelper f;
 
     private DatabaseHelper() {
     }
@@ -67,6 +69,9 @@ for (int i = 0; i < list.getLength(); i++){
 
     public void addPeople(java.util.List<Person> people) throws MalformedURLException, BaseXException {
         init();
+        JsonHelper g = new JsonHelper();
+        Person p = people.get(0);
+       JSONObject j= g.convert(p);
     }
 
 }
