@@ -6,6 +6,7 @@
     <entry key="parserType">xml</entry>
     <entry key="databaseName">people</entry>
     <entry key="jsonData">src/main/resources/tweets.json</entry>
+    <entry key="dataFile">src/main/resources/people.csv</entry>
     <entry key="databasePath">src/main/resources/input.xml</entry>
     <entry key="dataPath">src/main/resources/data.xml</entry>
     </properties>

@@ -26,7 +26,7 @@ public class FileHelper {
         this.properties = properties;
     }
 
-    public void readFile() throws IOException {
+    private void readFile() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(properties.getProperty("dataFile")));
         lines = new ArrayList();
         reader.lines().forEach(line -> lines.add(line));
@@ -34,7 +34,8 @@ public class FileHelper {
         log.fine(lines.toString());
     }
 
-    public void processLines() {
+    public void processLines() throws IOException {
+        readFile();
         String regex = "\\D+";
         boolean isDigit = false;
         for (String s : lines) {
