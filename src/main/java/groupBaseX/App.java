@@ -1,7 +1,9 @@
 package groupBaseX;
 
+import basex.io.Person;
 import basex.read.Parser;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
@@ -14,8 +16,8 @@ public class App {
     private void run() throws BaseXException, IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
         Parser reader = new Parser(properties);
-        String xmlResult = reader.iterate();
-        log.fine(xmlResult);
+        List<Person> people = reader.iterate();
+        log.info(people.toString());
     }
 
     public static void main(String[] args) throws IOException {

@@ -1,5 +1,8 @@
 package basex.read;
 
+import basex.io.Person;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -14,7 +17,9 @@ public class Parser {
     private Properties properties = new Properties();
     private String databaseName = null;
     private Context context = null;
-    
+    private Person person = null;
+    private List<Person> people = new ArrayList<>();
+
     private Parser() {
     }
 
@@ -24,20 +29,28 @@ public class Parser {
         context = new Context();
     }
 
-    public String iterate() throws BaseXException {
+    public List<Person> iterate() throws BaseXException {
         String open = new Open(databaseName).execute(context);
         String xml = new XQuery(".").execute(context).toString();
         int count = Integer.parseInt(new XQuery("count(/text/line)").execute(context).toString());
         log.fine(Integer.toString(count));
         boolean isDigit = false;
+        List<String> attribs = new ArrayList<>();
 
         String s = null;
         for (int i = count; i > 0; i--) {
             s = new XQuery("/text/line[" + i + "]/text()").execute(context);
             isDigit = Pattern.matches("\\D+", s);
-            log.info(s + "\t\t\t" + isDigit);
+            if (!isDigit) {
+                attribs.add(s);
+            } else {
+                person = new Person(s, attribs);
+                attribs = new ArrayList<>();
+                people.add(person);
+            }
+            log.fine(s + "\t\t\t" + isDigit);
         }
-        return xml;
+        return people;
     }
 
 }

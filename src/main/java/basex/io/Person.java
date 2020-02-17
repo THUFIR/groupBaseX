@@ -13,7 +13,7 @@ public class Person {
     private Person() {
     }
 
-    Person(String name, List<String> attributes) {
+    public Person(String name, List<String> attributes) {
         this.name = name;
         this.attributes = attributes;
     }
@@ -25,7 +25,7 @@ public class Person {
             stringBuilder.append(s);
             stringBuilder.append("\t");
         }
-        return "\n\n\n" + name + "\n" + stringBuilder.toString();
+        return "\n\n\n---------------------------\n\n\n" + name + "\n" + stringBuilder.toString();
     }
 
     public String getName() {
