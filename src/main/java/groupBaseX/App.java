@@ -1,6 +1,6 @@
 package groupBaseX;
 
-import groupBaseX.basex.json.JsonHelper;
+import groupBaseX.basex.json.DatabaseHelper;
 import groupBaseX.basex.read.Parser;
 import groupBaseX.io.Person;
 import java.io.IOException;
@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class App {
 
@@ -20,16 +18,10 @@ public class App {
         properties.loadFromXML(App.class.getResourceAsStream("/readPeople.xml"));
         Parser reader = new Parser(properties);
         List<Person> people = reader.iterate();
-        log.fine(people.toString());
-        JSONObject jsonPerson = null;
-        JSONArray jsonPeople = new JSONArray();
-        for (Person person : people) {
-            jsonPerson = new JsonHelper(person).convert();
-            log.info("\n\n\n\n" + jsonPerson.toString());
-        }
 
         properties.loadFromXML(App.class.getResourceAsStream("/writeJsonPeople.xml"));
-        reader = new Parser(properties);
+        DatabaseHelper dh = new DatabaseHelper(properties);
+        dh.addPeople(people);
     }
 
     public static void main(String[] args) throws IOException {
