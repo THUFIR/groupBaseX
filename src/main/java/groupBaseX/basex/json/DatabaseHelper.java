@@ -38,7 +38,7 @@ public class DatabaseHelper {
         log.fine(new List().execute(context));
     }
 
-    public void addPeople(java.util.List<Person> people) throws MalformedURLException, BaseXException {
+    public void addPeople(java.util.List<Person> people) throws BaseXException {
         init();
         log.fine(new Open(databaseName).execute(context));
         log.fine(new Set("parser", "json").execute(context));
