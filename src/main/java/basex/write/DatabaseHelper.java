@@ -1,5 +1,7 @@
-package basex;
+package basex.write;
 
+import basex.JsonHelper;
+import basex.Person;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;

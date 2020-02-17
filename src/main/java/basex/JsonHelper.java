@@ -7,7 +7,7 @@ public class JsonHelper {
     public JsonHelper() {
     }
 
-    JSONObject convert(Person person) {
+    public JSONObject convert(Person person) {
         JSONObject jsonObject = null;
         jsonObject = new JSONObject();
 

@@ -1,4 +1,4 @@
-package basex;
+package basex.read;
 
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -8,22 +8,20 @@ import org.basex.core.Context;
 import org.basex.core.cmd.Open;
 import org.basex.core.cmd.XQuery;
 
-public class Reader {
+public class Parser {
 
-    private static final Logger log = Logger.getLogger(Reader.class.getName());
+    private static final Logger log = Logger.getLogger(Parser.class.getName());
     private Properties properties = new Properties();
     private String databaseName = null;
     private Context context = null;
-    private Parser p = null;
-
-    private Reader() {
+    
+    private Parser() {
     }
 
-    public Reader(Properties properties) {
+    public Parser(Properties properties) {
         this.properties = properties;
         databaseName = properties.getProperty("databaseName");
         context = new Context();
-        p = new Parser(properties);
     }
 
     public String iterate() throws BaseXException {
