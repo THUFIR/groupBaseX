@@ -1,6 +1,7 @@
-package basex.read;
+package groupBaseX.basex.read;
 
-import basex.io.Person;
+
+import groupBaseX.io.Person;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;

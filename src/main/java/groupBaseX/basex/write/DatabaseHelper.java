@@ -1,7 +1,7 @@
-package basex.write;
+package groupBaseX.basex.write;
 
-import basex.io.JsonHelper;
-import basex.io.Person;
+import groupBaseX.basex.io.JsonHelper;
+import groupBaseX.io.Person;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,6 +16,7 @@ import org.basex.core.cmd.Set;
 import org.basex.core.cmd.XQuery;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 
 

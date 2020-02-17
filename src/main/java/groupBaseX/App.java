@@ -1,7 +1,7 @@
 package groupBaseX;
 
-import basex.io.Person;
-import basex.read.Parser;
+import groupBaseX.basex.read.Parser;
+import groupBaseX.io.Person;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;

@@ -1,5 +1,6 @@
-package basex.io;
+package groupBaseX.basex.io;
 
+import groupBaseX.io.Person;
 import org.json.JSONObject;
 
 public class JsonHelper {

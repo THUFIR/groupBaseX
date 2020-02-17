@@ -1,4 +1,4 @@
-package basex.io;
+package groupBaseX.basex.io;
 
 import java.util.Properties;
 import java.util.logging.Logger;
