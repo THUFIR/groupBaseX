@@ -23,10 +23,16 @@ public class Reader {
         context = new Context();
     }
 
+    public String count() throws BaseXException {
+        String open = new Open(databaseName).execute(context);
+        String result = new XQuery("count(/)").execute(context).toString();
+        log.fine(open);
+        return result;
+    }
     public String iterate() throws BaseXException {
         String foo = new Open(databaseName).execute(context);
         String xml = new XQuery(".").execute(context).toString();
-        log.info(foo);
+        log.fine(foo);
         return xml;
     }
 

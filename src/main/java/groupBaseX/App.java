@@ -1,7 +1,6 @@
 package groupBaseX;
 
 import basex.Reader;
-import basex.Helper;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -15,7 +14,9 @@ public class App {
     private void run() throws BaseXException, IOException   {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
         Reader reader = new Reader(properties);
-        String string = reader.iterate();
+        String xmlResult = reader.iterate();
+        xmlResult = reader.count();
+        log.info(xmlResult);
     }
 
     public static void main(String[] args) throws IOException {
