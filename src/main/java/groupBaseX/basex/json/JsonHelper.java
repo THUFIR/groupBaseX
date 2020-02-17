@@ -1,4 +1,4 @@
-package groupBaseX.basex.io;
+package groupBaseX.basex.json;
 
 import groupBaseX.io.Person;
 import org.json.JSONObject;
