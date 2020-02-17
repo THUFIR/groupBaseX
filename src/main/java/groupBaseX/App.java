@@ -12,12 +12,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class App {
-    
+
     private static final Logger log = Logger.getLogger(App.class.getName());
     private Properties properties = new Properties();
-    
+
     private void run() throws BaseXException, IOException {
-        properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/readPeople.xml"));
         Parser reader = new Parser(properties);
         List<Person> people = reader.iterate();
         log.fine(people.toString());
@@ -27,8 +27,11 @@ public class App {
             jsonPerson = new JsonHelper(person).convert();
             log.info("\n\n\n\n" + jsonPerson.toString());
         }
+
+        properties.loadFromXML(App.class.getResourceAsStream("/writeJsonPeople.xml"));
+        reader = new Parser(properties);
     }
-    
+
     public static void main(String[] args) throws IOException {
         new App().run();
     }
