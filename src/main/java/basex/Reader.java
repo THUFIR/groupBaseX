@@ -1,7 +1,6 @@
-package basex.database;
+package basex;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
@@ -24,7 +23,7 @@ public class Reader {
         this.properties = properties;
     }
 
-    private void init() throws MalformedURLException, BaseXException {
+    private void init() throws BaseXException {
         log.fine(properties.toString());
         databaseName = properties.getProperty("databaseName");
         context = new Context();
@@ -39,6 +38,12 @@ public class Reader {
         new Open(databaseName).execute(context);
         String xml = new XQuery("/text/line").execute(context).toString();
         log.info(xml);
+    }
+
+    public void iterate() throws BaseXException   {
+        init();
+        log.info("hello world...");
+
     }
 
 }

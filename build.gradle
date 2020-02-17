@@ -14,12 +14,9 @@ plugins {
     id 'application'
 }
 
-
 configurations {
    jaxb
 }
-
-
 
 task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
