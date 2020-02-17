@@ -15,8 +15,7 @@ public class App {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
         Reader reader = new Reader(properties);
         String xmlResult = reader.iterate();
-        xmlResult = reader.count();
-        log.info(xmlResult);
+        log.fine(xmlResult);
     }
 
     public static void main(String[] args) throws IOException {
