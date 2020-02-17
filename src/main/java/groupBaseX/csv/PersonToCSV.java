@@ -6,6 +6,8 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import groupBaseX.App;
 import groupBaseX.io.Person;
 import java.io.Writer;
+import java.io.FileWriter;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class PersonToCSV {
@@ -20,11 +22,17 @@ public class PersonToCSV {
         this.person = person;
     }
 
-    public StatefulBeanToCsv writeCsvFromBean() throws Exception {
-        Writer writer = null;
+    public StatefulBeanToCsv writeCsvFromBean(List<Person> people) throws Exception {
+        Writer writer = new FileWriter("/home/thufir/Desktop/out.csv");
         StatefulBeanToCsv sbc = new StatefulBeanToCsvBuilder(writer)
                 .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
                 .build();
+
+        StatefulBeanToCsvBuilder<Person> builder = new StatefulBeanToCsvBuilder<>(writer);
+        StatefulBeanToCsv<Person> beanWriter = builder.build();
+        beanWriter.write(people);
+        writer.close();
+
         return sbc;
     }
 }

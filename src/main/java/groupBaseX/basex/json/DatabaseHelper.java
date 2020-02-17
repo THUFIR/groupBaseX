@@ -1,7 +1,6 @@
 package groupBaseX.basex.json;
 
 import groupBaseX.io.Person;
-import java.net.MalformedURLException;
 import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
@@ -36,6 +35,14 @@ public class DatabaseHelper {
         databaseName = properties.getProperty("databaseName");
         context = new Context();
         log.fine(new List().execute(context));
+    }
+
+    public void loadPeople() throws BaseXException {
+        init();
+        log.fine(new Open(databaseName).execute(context));
+        log.fine(new Set("parser", "json").execute(context));
+        //
+        //should return JSONArray
     }
 
     public void addPeople(java.util.List<Person> people) throws BaseXException {
