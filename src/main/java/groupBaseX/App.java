@@ -18,13 +18,13 @@ public class App {
         properties.loadFromXML(App.class.getResourceAsStream("/readFoo.xml"));
         Parser reader = new Parser(properties);
         List<Person> people = reader.iterate();
-        log.info(people.toString());
+        log.fine(people.toString());
 
-        /*
-        properties.loadFromXML(App.class.getResourceAsStream("/writeJsonPeople.xml"));
+        
+        properties.loadFromXML(App.class.getResourceAsStream("/writeJsonFoo.xml"));
         DatabaseHelper dh = new DatabaseHelper(properties);
         dh.addPeople(people);
-        */
+        
     }
 
     public static void main(String[] args) throws IOException {
