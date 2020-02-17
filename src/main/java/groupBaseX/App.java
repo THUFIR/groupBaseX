@@ -12,10 +12,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class App {
-
+    
     private static final Logger log = Logger.getLogger(App.class.getName());
     private Properties properties = new Properties();
-
+    
     private void run() throws BaseXException, IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
         Parser reader = new Parser(properties);
@@ -25,11 +25,10 @@ public class App {
         JSONArray jsonPeople = new JSONArray();
         for (Person person : people) {
             jsonPerson = new JsonHelper(person).convert();
-            jsonPeople.put(jsonPerson);
+            log.info("\n\n\n\n" + jsonPerson.toString());
         }
-        log.info(jsonPeople.toString());
     }
-
+    
     public static void main(String[] args) throws IOException {
         new App().run();
     }
