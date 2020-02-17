@@ -1,6 +1,7 @@
 package groupBaseX;
 
 import groupBaseX.basex.read.Parser;
+import groupBaseX.csv.Transform;
 import groupBaseX.io.Person;
 import java.io.IOException;
 import java.util.List;
@@ -18,6 +19,10 @@ public class App {
         Parser reader = new Parser(properties);
         List<Person> people = reader.iterate();
         log.info(people.toString());
+        Transform t = null;
+        for (Person person : people) {
+            t = new Transform(person);
+        }
     }
 
     public static void main(String[] args) throws IOException {
