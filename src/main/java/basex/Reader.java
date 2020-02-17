@@ -37,7 +37,7 @@ public class Reader {
         for (int i = count; i > 0; i--) {
             s = new XQuery("/text/line[" + i + "]/text()").execute(context);
             isDigit = Pattern.matches("\\D+", s);
-            log.fine(s);
+            log.info(s + "\t\t\t" + isDigit);
         }
         return xml;
     }
