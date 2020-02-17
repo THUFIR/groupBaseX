@@ -40,10 +40,11 @@ public class Reader {
         log.info(xml);
     }
 
-    public void iterate() throws BaseXException   {
+    public void iterate() throws BaseXException {
         init();
-        log.info("hello world...");
-
+        new Open(databaseName).execute(context);
+        String xml = new XQuery(".").execute(context).toString();
+        log.info(xml);
     }
 
 }

@@ -17,7 +17,7 @@ public class App {
     private Properties properties = new Properties();
 
     private void run() throws BaseXException, IOException   {
-        properties.loadFromXML(App.class.getResourceAsStream("/dummy.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/real.xml"));
         basex.Reader dq = new Reader(properties);
         dq.iterate();
     }
