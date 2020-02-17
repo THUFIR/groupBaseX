@@ -15,7 +15,7 @@ plugins {
 }
 
 configurations {
-   jaxb
+    jaxb
 }
 
 task genJaxb {
@@ -28,7 +28,7 @@ task genJaxb {
     doLast() {
         project.ant {
             taskdef name: "xjc", classname: "com.sun.tools.xjc.XJCTask",
-                    classpath: configurations.jaxb.asPath
+            classpath: configurations.jaxb.asPath
             mkdir(dir: sourcesDir)
             mkdir(dir: classesDir)
 
@@ -38,8 +38,8 @@ task genJaxb {
             }
 
             javac(destdir: classesDir, source: 1.6, target: 1.6, debug: true,
-                    debugLevel: "lines,vars,source",
-                    classpath: configurations.jaxb.asPath) {
+                debugLevel: "lines,vars,source",
+                classpath: configurations.jaxb.asPath) {
                 src(path: sourcesDir)
                 include(name: "**/*.java")
                 include(name: "*.java")
@@ -76,13 +76,17 @@ dependencies {
     // compile group: 'org.exist-db', name: 'exist-core', version: '5.2.0'
 
 
-  //  implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
-  //  implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    // https://mvnrepository.com/artifact/com.opencsv/opencsv
+    compile group: 'com.opencsv', name: 'opencsv', version: '5.1'
+
+    
+    //  implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    //  implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
   
     // https://mvnrepository.com/artifact/org.json/json
-   compile group: 'org.json', name: 'json', version: '20190722'
+    compile group: 'org.json', name: 'json', version: '20190722'
    
-        jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
+    jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
 
 }
 
