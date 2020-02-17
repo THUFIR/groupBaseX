@@ -1,6 +1,7 @@
 package groupBaseX;
 
 import basex.DatabaseHelper;
+import basex.DatabaseQueries;
 import basex.FileHelper;
 import basex.Person;
 import java.io.IOException;
@@ -15,6 +16,12 @@ public class App {
     private Properties properties = new Properties();
 
     private void run() throws IOException {
+        properties.loadFromXML(App.class.getResourceAsStream("/dummy.xml"));
+        DatabaseQueries dq = new DatabaseQueries(properties);
+        dq.iterate();
+    }
+
+    private void load() throws IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/real.xml"));
         log.fine(properties.toString());
         FileHelper f = new FileHelper(properties);
@@ -23,7 +30,7 @@ public class App {
         DatabaseHelper db = new DatabaseHelper(properties);
         JSONArray jsonPeople = db.addPeople(people);
         log.info(jsonPeople.toString());
-     //   db.persist(jsonPeople);
+        //   db.persist(jsonPeople);
     }
 
     public static void main(String[] args) throws IOException {
