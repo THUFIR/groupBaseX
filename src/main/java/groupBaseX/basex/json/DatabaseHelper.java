@@ -5,8 +5,13 @@ import java.net.MalformedURLException;
 import java.util.Properties;
 import java.util.logging.Logger;
 import org.basex.core.BaseXException;
+import org.basex.core.Command;
 import org.basex.core.Context;
+import org.basex.core.cmd.Add;
 import org.basex.core.cmd.List;
+import org.basex.core.cmd.Open;
+import org.basex.core.cmd.Set;
+import org.basex.io.in.ArrayInput;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -30,20 +35,24 @@ public class DatabaseHelper {
         parserType = properties.getProperty("parserType");
         databaseName = properties.getProperty("databaseName");
         context = new Context();
-        list();
-    }
-
-    private void list() throws BaseXException {
         log.fine(new List().execute(context));
     }
 
     public void addPeople(java.util.List<Person> people) throws MalformedURLException, BaseXException {
         init();
-        JsonHelper jsonHelper = null;// = new JsonHelper();
-        JSONObject jsonObject = null;
+        log.fine(new Open(databaseName).execute(context));
+        log.fine(new Set("parser", "json").execute(context));
+        JSONObject jsonPerson = null;
+        JSONArray jsonPeople = new JSONArray();
+        Command add = null;
         for (Person person : people) {
-            jsonObject = new JsonHelper(person).convert();
+            jsonPerson = new JsonHelper(person).convert();
+            jsonPeople.put(jsonPerson);
         }
+
+        add = new Add(".json");
+        add.setInput(new ArrayInput(jsonPeople.toString()));
+        log.fine(add.execute(context));
     }
 
 }
