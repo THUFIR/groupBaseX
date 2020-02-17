@@ -5,10 +5,16 @@ import org.json.JSONObject;
 
 public class JsonHelper {
 
-    public JsonHelper() {
+    private Person person = null;
+
+    private JsonHelper() {
     }
 
-    public JSONObject convert(Person person) {
+    public JsonHelper(Person person) {
+        this.person = person;
+    }
+
+    public JSONObject convert() {
         JSONObject jsonObject = null;
         jsonObject = new JSONObject();
 
