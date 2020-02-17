@@ -1,6 +1,6 @@
 package groupBaseX.basex.write;
 
-import groupBaseX.basex.io.JsonHelper;
+import groupBaseX.basex.json.JsonHelper;
 import groupBaseX.io.Person;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -16,9 +16,6 @@ import org.basex.core.cmd.Set;
 import org.basex.core.cmd.XQuery;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-
-
 
 public class DatabaseHelper {
 
@@ -76,7 +73,7 @@ public class DatabaseHelper {
     public void persist(JSONArray jsonPeople) throws MalformedURLException, BaseXException {
         new Set("parser", "json").execute(context);
         new Open(databaseName).execute(context);
-        
+
         JSONObject jsonPerson = null;
         for (int i = 0; i < jsonPeople.length(); i++) {
             jsonPerson = new JSONObject(jsonPeople.getJSONObject(i).toString());

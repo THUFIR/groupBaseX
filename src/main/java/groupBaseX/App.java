@@ -1,6 +1,6 @@
 package groupBaseX;
 
-import groupBaseX.basex.io.JsonHelper;
+import groupBaseX.basex.json.JsonHelper;
 import groupBaseX.basex.read.Parser;
 import groupBaseX.io.Person;
 import java.io.IOException;
