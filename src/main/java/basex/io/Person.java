@@ -1,4 +1,4 @@
-package basex;
+package basex.io;
 
 import java.util.ArrayList;
 import java.util.List;

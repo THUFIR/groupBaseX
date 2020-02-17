@@ -1,4 +1,4 @@
-package basex;
+package basex.io;
 
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package basex;
+package basex.io;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
