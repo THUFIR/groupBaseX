@@ -2,6 +2,7 @@ package basex;
 
 import java.util.Properties;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.Open;
@@ -13,6 +14,7 @@ public class Reader {
     private Properties properties = new Properties();
     private String databaseName = null;
     private Context context = null;
+    private Parser p = null;
 
     private Reader() {
     }
@@ -21,6 +23,7 @@ public class Reader {
         this.properties = properties;
         databaseName = properties.getProperty("databaseName");
         context = new Context();
+        p = new Parser(properties);
     }
 
     public String iterate() throws BaseXException {
@@ -28,11 +31,13 @@ public class Reader {
         String xml = new XQuery(".").execute(context).toString();
         int count = Integer.parseInt(new XQuery("count(/text/line)").execute(context).toString());
         log.fine(Integer.toString(count));
+        boolean isDigit = false;
 
         String s = null;
         for (int i = count; i > 0; i--) {
             s = new XQuery("/text/line[" + i + "]/text()").execute(context);
-            log.info(s);
+            isDigit = Pattern.matches("\\D+", s);
+            log.fine(s);
         }
         return xml;
     }

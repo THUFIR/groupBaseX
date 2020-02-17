@@ -11,11 +11,11 @@ public class App {
     private static final Logger log = Logger.getLogger(App.class.getName());
     private Properties properties = new Properties();
 
-    private void run() throws BaseXException, IOException   {
+    private void run() throws BaseXException, IOException {
         properties.loadFromXML(App.class.getResourceAsStream("/properties.xml"));
         Reader reader = new Reader(properties);
         String xmlResult = reader.iterate();
-        log.fine(xmlResult);
+         log.fine(xmlResult);
     }
 
     public static void main(String[] args) throws IOException {
