@@ -25,8 +25,8 @@ public class App {
         DatabaseHelper dh = new DatabaseHelper(properties);
         dh.addPeople(people);
         
-        PersonToCSV c = new PersonToCSV(people);
-        c.write();
+        PersonToCSV c = new PersonToCSV();
+        c.write(people);
     }
 
     public static void main(String[] args) throws IOException, Exception {

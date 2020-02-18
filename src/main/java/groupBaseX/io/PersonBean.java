@@ -1,10 +1,13 @@
 package groupBaseX.io;
 
+import com.opencsv.bean.CsvBindByName;
 import java.util.logging.Logger;
 
 public class PersonBean {
 
     private static final Logger log = Logger.getLogger(PersonBean.class.getName());
+    
+    @CsvBindByName(column = "name")
     private String name = "foo";
 
     public PersonBean() {
