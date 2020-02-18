@@ -18,7 +18,7 @@ public class AttributeParser {
 
     // ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$  phone
     // ^\d{5}(?:[-\s]\d{4})?$     zip
-    private void foo() {
+    public void foo() {
 
         boolean isPhone = false;
         boolean isZip = false;
