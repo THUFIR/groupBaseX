@@ -11,7 +11,7 @@ public class PersonBean {
     private String name = "";
 
     @CsvBindByName(column = "home phone 1")
-    private String homePhone01 = "";
+    private String homePhone1 = "";
 
     @CsvBindByName(column = "home phone 2")
     private String homePhone2 = "";
@@ -49,13 +49,6 @@ public class PersonBean {
     public PersonBean() {
     }
 
-    
-    
-    @Override
-    public String toString() {
-        return "\n\n\n---------------------------\n\n\n" + getName() + "\n";
-    }
-
     public String getName() {
         return name;
     }
@@ -64,52 +57,52 @@ public class PersonBean {
         this.name = name;
     }
 
-    public String getA() {
-        return homePhone01;
+    public String getHomePhone01() {
+        return homePhone1;
     }
 
-    public void setA(String a) {
-        this.homePhone01 = a;
+    public void setHomePhone1(String homePhone1) {
+        this.homePhone1 = homePhone1;
     }
 
-    public String getB() {
+    public String getHomePhone2() {
         return homePhone2;
     }
 
-    public void setB(String b) {
-        this.homePhone2 = b;
+    public void setHomePhone2(String homePhone2) {
+        this.homePhone2 = homePhone2;
     }
 
-    public String getC() {
+    public String getCellPhone1() {
         return cellPhone1;
     }
 
-    public void setC(String c) {
-        this.cellPhone1 = c;
+    public void setCellPhone1(String cellPhone1) {
+        this.cellPhone1 = cellPhone1;
     }
 
-    public String getD() {
+    public String getCellPhone2() {
         return cellPhone2;
     }
 
-    public void setD(String d) {
-        this.cellPhone2 = d;
+    public void setCellPhone2(String cellPhone2) {
+        this.cellPhone2 = cellPhone2;
     }
 
-    public String getE() {
+    public String getAddress1() {
         return address1;
     }
 
-    public void setE(String e) {
-        this.address1 = e;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
     }
 
-    public String getF() {
+    public String getAddress2() {
         return address2;
     }
 
-    public void setF(String f) {
-        this.address2 = f;
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
     public String getG() {
@@ -159,5 +152,10 @@ public class PersonBean {
     public void setL(String l) {
         this.l = l;
     }
+    
+
+    
+    
+    
 
 }

@@ -15,6 +15,10 @@ public class PersonBeanBuilder {
 
     public PersonBeanBuilder(Person person) {
         this.person = person;
+
+    }
+
+    public PersonBean getPersonBean() {
         personBean.setName(person.getName());
 
         Map<String, AF> map = new HashMap<String, AF>();
@@ -27,17 +31,13 @@ public class PersonBeanBuilder {
             switch (map.get(key)) {
                 case HOME_PHONE:
                     log.info(AF.HOME_PHONE.toString());
+                    personBean.setHomePhone1(key);
                     break;
                 default:
                     log.info(AF.HOME_PHONE.toString());
                     break;
             }
-
         }
-
-    }
-
-    public PersonBean getPersonBean() {
         return personBean;
     }
 
