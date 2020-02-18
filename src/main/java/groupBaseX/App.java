@@ -15,14 +15,14 @@ public class App {
     private Properties properties = new Properties();
 
     private void run() throws BaseXException, IOException, Exception {
-        properties.loadFromXML(App.class.getResourceAsStream("/readFooText.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/readPeopleText.xml"));
         Parser reader = new Parser(properties);
         List<Person> people = reader.iterate();
         log.fine(people.toString());
 
-    //    properties.loadFromXML(App.class.getResourceAsStream("/writeFooJson.xml"));
-    //    DatabaseHelper jsonDatabaseHelper = new DatabaseHelper(properties);
-    //    jsonDatabaseHelper.addPeople(people);
+     //   properties.loadFromXML(App.class.getResourceAsStream("/writePeopleJson.xml"));
+     //   JsonDatabaseHelper jsonDatabaseHelper = new JsonDatabaseHelper(properties);
+     //   jsonDatabaseHelper.addPeople(people);
         
         PersonToCSV c = new PersonToCSV();
         c.write(people);

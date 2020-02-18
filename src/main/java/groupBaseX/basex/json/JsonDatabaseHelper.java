@@ -14,18 +14,18 @@ import org.basex.io.in.ArrayInput;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class DatabaseHelper {
+public class JsonDatabaseHelper {
 
-    private static final Logger log = Logger.getLogger(DatabaseHelper.class.getName());
+    private static final Logger log = Logger.getLogger(JsonDatabaseHelper.class.getName());
     private Properties properties = new Properties();
     private String databaseName = null;
     private Context context = null;
     private String parserType = null;
 
-    private DatabaseHelper() {
+    private JsonDatabaseHelper() {
     }
 
-    public DatabaseHelper(Properties properties) {
+    public JsonDatabaseHelper(Properties properties) {
         this.properties = properties;
     }
 
