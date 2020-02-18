@@ -1,5 +1,7 @@
 package groupBaseX.io;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class PersonBeanBuilder {
@@ -15,7 +17,22 @@ public class PersonBeanBuilder {
         this.person = person;
         personBean.setName(person.getName());
 
+        Map<String, AF> map = new HashMap<String, AF>();
+
         for (String s : person.getAttributes()) {
+            map.put(s, AF.HOME_PHONE);
+        }
+
+        for (String key : map.keySet()) {
+            switch (map.get(key)) {
+                case HOME_PHONE:
+                    log.info(AF.HOME_PHONE.toString());
+                    break;
+                default:
+                    log.info(AF.HOME_PHONE.toString());
+                    break;
+            }
+
         }
 
     }
