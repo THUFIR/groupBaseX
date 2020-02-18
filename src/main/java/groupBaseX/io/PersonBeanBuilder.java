@@ -21,20 +21,21 @@ public class PersonBeanBuilder {
     public PersonBean getPersonBean() {
         personBean.setName(person.getName());
 
-        Map<String, AF> map = new HashMap<String, AF>();
+        Map<String, AF> map = new HashMap<>();
 
-        for (String s : person.getAttributes()) {
-            map.put(s, AF.HOME_PHONE);
-        }
+        AF attributeField = AF.GARBAGE;
+        person.getAttributes().forEach((s) -> {
+            map.put(s, attributeField.getType(s));
+        });
 
         for (String key : map.keySet()) {
             switch (map.get(key)) {
                 case HOME_PHONE:
-                    log.info(AF.HOME_PHONE.toString());
+                    log.fine(AF.HOME_PHONE.toString());
                     personBean.setHomePhone1(key);
                     break;
                 default:
-                    log.info(AF.HOME_PHONE.toString());
+                    log.fine(AF.HOME_PHONE.toString());
                     break;
             }
         }
