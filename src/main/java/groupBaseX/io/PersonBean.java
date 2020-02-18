@@ -8,25 +8,25 @@ public class PersonBean {
     private static final Logger log = Logger.getLogger(PersonBean.class.getName());
 
     @CsvBindByName(column = "0name")
-    private String name = "foo";
+    private String name = "";
 
-    @CsvBindByName(column = "a")
-    private String a = "";
+    @CsvBindByName(column = "home phone 1")
+    private String homePhone01 = "";
 
-    @CsvBindByName(column = "b")
-    private String b = "";
+    @CsvBindByName(column = "home phone 2")
+    private String homePhone2 = "";
 
-    @CsvBindByName(column = "c")
-    private String c = "";
+    @CsvBindByName(column = "cell phone 1")
+    private String cellPhone1 = "";
 
-    @CsvBindByName(column = "d")
-    private String d = "";
+    @CsvBindByName(column = "cell phone 2")
+    private String cellPhone2 = "";
 
-    @CsvBindByName(column = "e")
-    private String e = "";
+    @CsvBindByName(column = "address 1")
+    private String address1 = "";
    
-    @CsvBindByName(column = "f")
-    private String f = "";
+    @CsvBindByName(column = "address 2")
+    private String address2 = "";
    
     @CsvBindByName(column = "g")
     private String g = "";
@@ -65,51 +65,51 @@ public class PersonBean {
     }
 
     public String getA() {
-        return a;
+        return homePhone01;
     }
 
     public void setA(String a) {
-        this.a = a;
+        this.homePhone01 = a;
     }
 
     public String getB() {
-        return b;
+        return homePhone2;
     }
 
     public void setB(String b) {
-        this.b = b;
+        this.homePhone2 = b;
     }
 
     public String getC() {
-        return c;
+        return cellPhone1;
     }
 
     public void setC(String c) {
-        this.c = c;
+        this.cellPhone1 = c;
     }
 
     public String getD() {
-        return d;
+        return cellPhone2;
     }
 
     public void setD(String d) {
-        this.d = d;
+        this.cellPhone2 = d;
     }
 
     public String getE() {
-        return e;
+        return address1;
     }
 
     public void setE(String e) {
-        this.e = e;
+        this.address1 = e;
     }
 
     public String getF() {
-        return f;
+        return address2;
     }
 
     public void setF(String f) {
-        this.f = f;
+        this.address2 = f;
     }
 
     public String getG() {
