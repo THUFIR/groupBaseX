@@ -16,12 +16,12 @@ public class App {
     private Properties properties = new Properties();
 
     private void run() throws BaseXException, IOException, Exception {
-        properties.loadFromXML(App.class.getResourceAsStream("/readPeople.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/readFooText.xml"));
         Parser reader = new Parser(properties);
         List<Person> people = reader.iterate();
         log.fine(people.toString());
 
-        properties.loadFromXML(App.class.getResourceAsStream("/writeJsonPeople.xml"));
+        properties.loadFromXML(App.class.getResourceAsStream("/writeFooJson.xml"));
         DatabaseHelper dh = new DatabaseHelper(properties);
         dh.addPeople(people);
         

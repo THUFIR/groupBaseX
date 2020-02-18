@@ -4,7 +4,7 @@
     <entry key="htmlURL">http://books.toscrape.com/</entry>
     <entry key="xmlURL">https://www.w3schools.com/xml/note.xml</entry>
     <entry key="parserType">json</entry>
-    <entry key="databaseName">foo_json</entry>
+    <entry key="databaseName">people.txt</entry>
     <entry key="jsonData">src/main/resources/tweets.json</entry>
     <entry key="dummyData">src/main/resources/people.csv</entry>
     <entry key="dataFile">/home/thufir/Desktop/fubar.txt</entry>
