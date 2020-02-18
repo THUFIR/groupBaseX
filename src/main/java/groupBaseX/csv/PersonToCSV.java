@@ -5,6 +5,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import groupBaseX.App;
 import groupBaseX.io.Person;
+import groupBaseX.io.PersonBean;
 import java.io.Writer;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -24,10 +25,12 @@ public class PersonToCSV {
     }
 
     public void write() throws Exception {
-        List<String> strings = new ArrayList<>();
-
+        List<String> records = new ArrayList<>();
+        //Record r;
+//        Person p = null;
+        PersonBean pb = null;
         for (Person p : people) {
-            strings.add(p.getName());
+            records.add(p.getName());
         }
 
         Writer writer = new FileWriter("/home/thufir/Desktop/out.csv");
