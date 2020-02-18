@@ -16,6 +16,33 @@ public class PersonBeanBuilder {
         log.fine(person.toString());
         log.fine(person.getName());
         personBean.setName(person.getName());
+
+        try {
+            personBean.setA(person.getAttributes().get(0));
+        } catch (java.lang.IndexOutOfBoundsException e) {
+            log.info("meh");
+        }
+        try {
+            personBean.setB(person.getAttributes().get(1));
+        } catch (java.lang.IndexOutOfBoundsException e) {
+            log.info("meh");
+        }
+        try {
+            personBean.setC(person.getAttributes().get(2));
+        } catch (java.lang.IndexOutOfBoundsException e) {
+            log.info("meh");
+        }
+        try {
+            personBean.setD(person.getAttributes().get(3));
+        } catch (java.lang.IndexOutOfBoundsException e) {
+            log.info("meh");
+        }
+        try {
+            personBean.setE(person.getAttributes().get(4));
+        } catch (java.lang.IndexOutOfBoundsException e) {
+            log.info("meh");
+        }
+
     }
 
     public PersonBean getPersonBean() {

@@ -1,6 +1,5 @@
 package groupBaseX;
 
-import groupBaseX.basex.json.DatabaseHelper;
 import groupBaseX.basex.read.Parser;
 import groupBaseX.csv.PersonToCSV;
 import groupBaseX.io.Person;
@@ -21,9 +20,9 @@ public class App {
         List<Person> people = reader.iterate();
         log.fine(people.toString());
 
-        properties.loadFromXML(App.class.getResourceAsStream("/writeFooJson.xml"));
-        DatabaseHelper dh = new DatabaseHelper(properties);
-        dh.addPeople(people);
+    //    properties.loadFromXML(App.class.getResourceAsStream("/writeFooJson.xml"));
+    //    DatabaseHelper jsonDatabaseHelper = new DatabaseHelper(properties);
+    //    jsonDatabaseHelper.addPeople(people);
         
         PersonToCSV c = new PersonToCSV();
         c.write(people);
